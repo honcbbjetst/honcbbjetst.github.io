@@ -1,6 +1,7 @@
 <html>
 <head>
 <title>Test CSRF</title>
+<meta http-equiv="refresh" content="5;url=test.html"> 
 </head>
 
 <body onload="javascript:fireForms()">
